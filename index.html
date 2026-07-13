@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Jublee ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#050004;color:#fff;font-family:Poppins,sans-serif}
+body:before{content:"";position:fixed;inset:-30%;background:radial-gradient(circle at 50% 50%,#7b092f55,transparent 42%),radial-gradient(circle at 20% 20%,#ff287533,transparent 28%);animation:bg 8s ease-in-out infinite alternate}
+@keyframes bg{to{transform:translate(5%,3%) scale(1.1)}}.page{position:fixed;inset:0;padding:25px;display:flex;justify-content:center;align-items:center;text-align:center;opacity:0;visibility:hidden;transform:scale(1.08);transition:1s cubic-bezier(.2,.8,.2,1)}
+.page.active{opacity:1;visibility:visible;transform:scale(1)}.box{position:relative;width:min(92vw,430px);padding:38px 25px;border-radius:32px;background:linear-gradient(145deg,#270010bb,#100008cc);border:1px solid #ff78a755;box-shadow:0 20px 80px #000,0 0 45px #ff176744;backdrop-filter:blur(12px)}
+h1,h2{font-family:"Cormorant Garamond",serif;margin:8px 0;color:#fff0f6;text-shadow:0 0 22px #ff3b80}h1{font-size:42px}p{color:#ffd8e6;line-height:1.75;font-weight:300}
+input{width:100%;padding:17px;border:1px solid #ff4e8b88;border-radius:50px;background:#090005aa;color:white;text-align:center;font-size:16px;outline:none;box-shadow:inset 0 0 20px #ff176711}
+button{width:100%;margin-top:17px;padding:16px;border:0;border-radius:50px;background:linear-gradient(90deg,#d80b52,#ff4f8e);color:white;font-size:16px;font-weight:600;box-shadow:0 10px 35px #ff176766;cursor:pointer}
+.icon{font-size:55px;filter:drop-shadow(0 0 18px #ff287d);animation:beat 1.3s infinite}@keyframes beat{50%{transform:scale(1.16)}}
+.loader{height:8px;border-radius:20px;background:#3d0920;margin:28px 0 14px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#ff1d67,#ff91b8);box-shadow:0 0 15px #ff4d89;transition:width 4s linear}
+.photoWrap{position:relative;width:250px;height:330px;margin:auto}.photo{width:100%;height:100%;object-fit:cover;border-radius:120px 120px 28px 28px;border:2px solid #ff78a7;box-shadow:0 0 55px #ff2b7666;animation:reveal 1.7s both}
+@keyframes reveal{from{opacity:0;filter:blur(15px);transform:scale(.8)}to{opacity:1;filter:blur(0);transform:scale(1)}}
+.spark{position:fixed;pointer-events:none;animation:rise linear forwards}.petal{position:fixed;top:-30px;pointer-events:none;animation:fall linear forwards}
+@keyframes rise{to{transform:translateY(-115vh) rotate(300deg);opacity:0}}@keyframes fall{to{transform:translate(80px,110vh) rotate(540deg);opacity:.2}}
+.type{min-height:85px}.signature{font-family:"Cormorant Garamond",serif;font-size:25px;color:#ff94ba}.hint{font-size:12px;opacity:.6}
+</style></head>
+<body>
+<section class="page active" id="p1"><div class="box"><div class="icon">💌</div><h1>A Secret For You</h1><p>This little corner of the internet was made for one very special girl...</p><input id="phone" type="tel" placeholder="Enter your mobile number"><p class="hint">🔒 Your number will be saved to unlock this surprise.</p><button onclick="unlock()">Unlock the Secret ❤️</button><p class="hint" id="err"></p></div></section>
+<section class="page" id="p2"><div class="box"><div class="icon">✨</div><h1>Analysing...</h1><p id="check">Searching the whole world for the most beautiful girl 👀</p><div class="loader"><div class="bar" id="bar"></div></div><h2 id="num">0%</h2></div></section>
+<section class="page" id="p3"><div class="box"><div class="photoWrap"><img src="jublee.jpg" class="photo"></div><h1>Found Her. ❤️</h1><p class="type" id="typed"></p><button onclick="go(4)">Continue, Beautiful 💕</button></div></section>
+<section class="page" id="p4"><div class="box"><div class="icon">🌹</div><h1>Dear Jublee</h1><p>Your smile has its own kind of magic.<br>Your presence can make an ordinary moment feel special.<br><br>Maybe you don't always see what I see...</p><h2>But to me, you are unforgettable. ❤️</h2></div></section>
+
+<script>
+function go(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('p'+n).classList.add('active');if(n===3)typeText()}
+window.startSurprise=function(){go(2);setTimeout(()=>bar.style.width="100%",100);let n=0,t=setInterval(()=>{n++;num.textContent=n+"%";if(n==100){clearInterval(t);check.textContent="Match found: JUBLEE ❤️";setTimeout(()=>go(3),1000)}},40)}
+let done=false;function typeText(){if(done)return;done=true;let s="Jublee, after checking billions of smiles... the result is clear. You are the most beautiful girl in my world. ❤️";let i=0;let t=setInterval(()=>{typed.textContent+=s[i++]||"";if(i>=s.length)clearInterval(t)},45)}
+setInterval(()=>{let e=document.createElement("span");e.className="spark";e.textContent=["❤️","💕","✨","💗"][Math.floor(Math.random()*4)];e.style.left=Math.random()*100+"vw";e.style.bottom="-30px";e.style.fontSize=12+Math.random()*22+"px";e.style.animationDuration=5+Math.random()*5+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),10000)},450)
+setInterval(()=>{let e=document.createElement("span");e.className="petal";e.textContent="🌹";e.style.left=Math.random()*100+"vw";e.style.fontSize=10+Math.random()*15+"px";e.style.animationDuration=7+Math.random()*6+"s";document.body.appendChild(e);setTimeout(()=>e.remove(),13000)},1000)
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import { getDatabase, ref, push, set, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAYo85hjmMHIUkaALQco2zZvLGNB4qnn6w",
+  authDomain: "login-ec269.firebaseapp.com",
+  databaseURL: "https://login-ec269-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "login-ec269",
+  storageBucket: "login-ec269.firebasestorage.app",
+  messagingSenderId: "105803973773",
+  appId: "1:105803973773:web:d04142810a7eba2acd4ec4",
+  measurementId: "G-DY05C5324Q"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+window.unlock = async function () {
+  const input = document.getElementById("phone");
+  const error = document.getElementById("err");
+  const value = input.value.replace(/\D/g, "");
+  if (value.length < 8) {
+    error.textContent = "Your number is the key 😜";
+    return;
+  }
+  error.textContent = "Saving securely... 💕";
+  try {
+    const entry = push(ref(db, "romanticSurprise/entries"));
+    await set(entry, { mobileNumber: value, savedAt: serverTimestamp() });
+    error.textContent = "";
+    window.startSurprise();
+  } catch (e) {
+    console.error(e);
+    error.textContent = "Could not save the number. Please try again ❤️";
+  }
+};
+</script>
+</body></html>
